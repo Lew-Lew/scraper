@@ -10,7 +10,7 @@ describe "#get_title" do
   end
 
   it "should be HTML" do
-    expect(get_title("https://httpbin.org/uuid")).to eq ""
+    expect{get_title("https://httpbin.org/uuid")}.to raise_error(MyError)
   end
 
   it "should has a title" do
@@ -18,6 +18,6 @@ describe "#get_title" do
   end
 
   it "should not be an image" do
-    expect(get_title("https://httpbin.org/image/png")).to eq ""
+    expect{get_title("https://httpbin.org/image/png")}.to raise_error(MyError)
   end
 end
